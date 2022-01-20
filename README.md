@@ -13,4 +13,4 @@ Still there's couple new things I want to dabble with:
 - Bootstrap 5
 - Responsive web design
 
-I did initially add a JavaScript file, but there's a chance I will complete the project without using it!
+JavaScript file is mostly for Firebase hosting configs.
