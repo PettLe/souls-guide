@@ -3,3 +3,8 @@ body {
   font-weight: 700;
   font-style: normal;
 }
+
+.frontImage {
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px black;
+}
