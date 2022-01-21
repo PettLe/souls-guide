@@ -34,4 +34,8 @@ const app = initializeApp(firebaseConfig);
 
 const analytics = getAnalytics(app);
 
-console.log("Hellurei testi");
+const feedback = document.getElementById("feedback");
+
+feedback.addEventListener("click", function () {
+  alert("Nothing here yet, sorry!");
+});
