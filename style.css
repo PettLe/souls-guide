@@ -15,5 +15,9 @@ button {
 }
 
 ul {
-  list-style-position: inside;
+  list-style-position: outside;
+}
+
+#additional {
+  list-style-type: none !important;
 }
