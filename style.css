@@ -13,3 +13,7 @@ body {
 button {
   box-shadow: 2px 2px 2px black;
 }
+
+ul {
+  list-style-position: inside;
+}
