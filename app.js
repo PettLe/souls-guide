@@ -41,33 +41,30 @@ const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 // FEEDBACK
-//const handleDocs = function () {
-//  const docRef = await addDoc(collection(db, "feedback"), {
-//    feedback: text,
-//  });
-//  console.log(docRef.feedback);
-//};
+const handleDocs = async function (text) {
+  const docRef = await addDoc(collection(db, "feedback"), {
+    feedback: text.value,
+  });
+};
 
 const feedback = document.getElementById("feedback");
 feedback.addEventListener("show.bs.modal", function (event) {
-  // Button that triggered the modal
   const button = event.relatedTarget;
-  // Extract info from data-bs-* attributes
-
-  // If necessary, you could initiate an AJAX request here
-  // and then do the updating in a callback.
-  //
-  // Update the modal's content.
   const modalTitle = feedback.querySelector(".modal-title");
-
   modalTitle.textContent = "Feedback / suggestions:";
 
+  // Hiding elements on submit etc.
   const submit = document.getElementById("submitFeedback");
+  submit.style.display = "block";
+  const text = document.getElementById("message-text");
+  text.style.display = "block";
 
   submit.addEventListener("click", function () {
-    const text = document.getElementById("message-text");
-    console.log(text.value);
+    handleDocs(text);
     text.value = "";
+    modalTitle.textContent = "Thank You!";
+    text.style.display = "none";
+    submit.style.display = "none";
   });
 });
 
@@ -83,7 +80,6 @@ for (let i = 0; i < closeBtn.length; i++) {
     clearField();
   });
 }
-//console.log("Document written with ID: ", docRef.id);
 
 // ELDEN RING TIMER
 var countDownDate = new Date("Feb 25, 2022 00:00:01").getTime();
