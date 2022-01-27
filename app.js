@@ -1,8 +1,12 @@
 // Import the functions you need from the SDKs you need
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js";
-
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-analytics.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+} from "https://www.gstatic.com/firebasejs/9.6.3/firebase-firestore.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -34,6 +38,8 @@ const app = initializeApp(firebaseConfig);
 
 const analytics = getAnalytics(app);
 
+const db = getFirestore(app);
+
 // FEEDBACK
 const feedback = document.getElementById("feedback");
 feedback.addEventListener("show.bs.modal", function (event) {
@@ -50,6 +56,11 @@ feedback.addEventListener("show.bs.modal", function (event) {
 
   modalTitle.textContent = "New message to ";
 });
+
+const docRef = await addDoc(collection(db, "feedback"), {
+  feedback: "Hullalala",
+});
+console.log("Document written with ID: ", docRef.id);
 
 // const feedback = document.getElementById("feedback");
 //
