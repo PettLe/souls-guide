@@ -6,6 +6,7 @@ import {
   getFirestore,
   collection,
   addDoc,
+  serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-firestore.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -43,7 +44,8 @@ const db = getFirestore(app);
 // FEEDBACK
 const handleDocs = async function (text) {
   const docRef = await addDoc(collection(db, "feedback"), {
-    feedback: text.value,
+    comment: text.value,
+    time: serverTimestamp(),
   });
 };
 
@@ -60,12 +62,16 @@ feedback.addEventListener("show.bs.modal", function (event) {
   text.style.display = "block";
   text.value = "";
 
-  submit.addEventListener("click", function () {
-    handleDocs(text);
-    modalTitle.textContent = "Thank You!";
-    text.style.display = "none";
-    submit.style.display = "none";
-  });
+  submit.addEventListener(
+    "click",
+    function () {
+      handleDocs(text);
+      modalTitle.textContent = "Thank You!";
+      text.style.display = "none";
+      submit.style.display = "none";
+    },
+    { once: true }
+  );
 });
 
 // Clearing the Feedback field when closing the modal
@@ -73,8 +79,8 @@ const clearField = function () {
   const text = document.getElementById("message-text");
   text.value = "";
 };
-const closeBtn = document.querySelectorAll(".closeFeedback");
 
+const closeBtn = document.querySelectorAll(".closeFeedback");
 for (let i = 0; i < closeBtn.length; i++) {
   closeBtn[i].addEventListener("click", function (e) {
     clearField();
