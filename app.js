@@ -34,11 +34,28 @@ const app = initializeApp(firebaseConfig);
 
 const analytics = getAnalytics(app);
 
+// FEEDBACK
 const feedback = document.getElementById("feedback");
+feedback.addEventListener("show.bs.modal", function (event) {
+  // Button that triggered the modal
+  const button = event.relatedTarget;
+  // Extract info from data-bs-* attributes
 
-feedback.addEventListener("click", function () {
-  alert("Nothing here yet, sorry!");
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  const modalTitle = feedback.querySelector(".modal-title");
+  const modalBodyInput = feedback.querySelector(".modal-body input");
+
+  modalTitle.textContent = "New message to ";
 });
+
+// const feedback = document.getElementById("feedback");
+//
+// feedback.addEventListener("click", function () {
+//   alert("Nothing here yet, sorry!");
+// });
 
 // ELDEN RING TIMER
 var countDownDate = new Date("Feb 25, 2022 00:00:01").getTime();
