@@ -14,3 +14,7 @@ Still there's couple new things I want to dabble with:
 - Responsive web design
 
 JavaScript file is mostly for Firebase hosting configs.
+
+---
+
+I found fairly clever way to receive feedback. I didn't want to clutter my e-mail etc., so I connected feedback form to firestore. Now all feedbacks go there. It was little bit harder than I expected since it's been few weeks since I've practiced firestore last time. So it was welcome practice.
