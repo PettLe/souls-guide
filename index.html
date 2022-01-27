@@ -91,6 +91,7 @@
 
             <div
               class="modal fade"
+              data-bs-backdrop="static"
               id="feedback"
               tabindex="-1"
               aria-labelledby="feedbackLabel"
@@ -102,7 +103,7 @@
                     <h5 class="modal-title" id="feedbackLabel">New message</h5>
                     <button
                       type="button"
-                      class="btn-close"
+                      class="btn-close closeFeedback"
                       data-bs-dismiss="modal"
                       aria-label="Close"
                     ></button>
@@ -120,7 +121,7 @@
                   <div class="modal-footer">
                     <button
                       type="button"
-                      class="btn btn-secondary"
+                      class="btn btn-secondary closeFeedback"
                       data-bs-dismiss="modal"
                     >
                       Close

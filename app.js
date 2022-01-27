@@ -71,6 +71,18 @@ feedback.addEventListener("show.bs.modal", function (event) {
   });
 });
 
+// Clearing the Feedback field when closing the modal
+const clearField = function () {
+  const text = document.getElementById("message-text");
+  text.value = "";
+};
+const closeBtn = document.querySelectorAll(".closeFeedback");
+
+for (let i = 0; i < closeBtn.length; i++) {
+  closeBtn[i].addEventListener("click", function (e) {
+    clearField();
+  });
+}
 //console.log("Document written with ID: ", docRef.id);
 
 // ELDEN RING TIMER
