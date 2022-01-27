@@ -58,10 +58,10 @@ feedback.addEventListener("show.bs.modal", function (event) {
   submit.style.display = "block";
   const text = document.getElementById("message-text");
   text.style.display = "block";
+  text.value = "";
 
   submit.addEventListener("click", function () {
     handleDocs(text);
-    text.value = "";
     modalTitle.textContent = "Thank You!";
     text.style.display = "none";
     submit.style.display = "none";
