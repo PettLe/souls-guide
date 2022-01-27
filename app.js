@@ -41,6 +41,13 @@ const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 // FEEDBACK
+//const handleDocs = function () {
+//  const docRef = await addDoc(collection(db, "feedback"), {
+//    feedback: text,
+//  });
+//  console.log(docRef.feedback);
+//};
+
 const feedback = document.getElementById("feedback");
 feedback.addEventListener("show.bs.modal", function (event) {
   // Button that triggered the modal
@@ -52,21 +59,19 @@ feedback.addEventListener("show.bs.modal", function (event) {
   //
   // Update the modal's content.
   const modalTitle = feedback.querySelector(".modal-title");
-  const modalBodyInput = feedback.querySelector(".modal-body input");
 
-  modalTitle.textContent = "New message to ";
+  modalTitle.textContent = "Feedback / suggestions:";
+
+  const submit = document.getElementById("submitFeedback");
+
+  submit.addEventListener("click", function () {
+    const text = document.getElementById("message-text");
+    console.log(text.value);
+    text.value = "";
+  });
 });
 
-const docRef = await addDoc(collection(db, "feedback"), {
-  feedback: "Hullalala",
-});
-console.log("Document written with ID: ", docRef.id);
-
-// const feedback = document.getElementById("feedback");
-//
-// feedback.addEventListener("click", function () {
-//   alert("Nothing here yet, sorry!");
-// });
+//console.log("Document written with ID: ", docRef.id);
 
 // ELDEN RING TIMER
 var countDownDate = new Date("Feb 25, 2022 00:00:01").getTime();
