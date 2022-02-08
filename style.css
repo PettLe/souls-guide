@@ -21,3 +21,9 @@ ul {
 #additional {
   list-style-type: none !important;
 }
+
+@media only screen and (max-width: 600px) {
+  .custom {
+    padding: 1px !important;
+  }
+}
